@@ -1,16 +1,28 @@
 // const validator = require("validator");
 
 const chalk = require("chalk");
-const { argv } = require("yargs");
+
 const yargs = require("yargs"); // Used to get args instead from process
-const { removeNote } = require("./notes.js");
+
 const notes = require("./notes.js"); // Using own file
+
+// ---- Accessing CLI Commands ----
+// const command = process.argv[2];
+
+// if (command === "add") {
+//   console.log("Adding Note!");
+// } else if (command === "remove") {
+//   console.log("Removing Note!");
+// }
+
+// console.log(process.argv);
 
 // Customize yargs version
 // yargs.version("1.1.0");
+// console.log(yargs.argv);
 
 // **** Yargs Commands ****
-// add, remove, read, list (Yargs could do)
+// add, remove, read, list (Make Using Yargs)
 
 // Create add command
 yargs.command({
@@ -28,8 +40,8 @@ yargs.command({
       type: "string",
     },
   },
-  handler(argv) {
-    notes.addNote(argv.title, argv.body);
+  handler() {
+    notes.addNote(yargs.argv.title, yargs.argv.body);
     // console.log("Title: ", argv.title);
     // console.log("Body Text: ", argv.body);
   },
@@ -47,7 +59,7 @@ yargs.command({
     },
   },
   handler() {
-    notes.removeNote(argv.title);
+    notes.removeNote(yargs.argv.title);
   },
 });
 
@@ -82,20 +94,6 @@ yargs.parse();
 // ---- Style Logs using npm "Chalk" module ----
 // console.log(getNotes());
 // console.log(chalk.green.inverse("Success!"));
-
-// ---- Accessing CLI Commands ----
-// const command = process.argv[2];
-
-// if (command === "add") {
-//   console.log("Adding Note!");
-// } else if (command === "remove") {
-//   console.log("Removing Note!");
-// }
-
-// console.log(process.argv);
-
-// yargs.version("1.1.0");
-// console.log(yargs.argv);
 
 // ---- npm package validator ----
 // console.log(validator.isEmail("daniyal@gmail.com"));
