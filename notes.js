@@ -26,7 +26,7 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
   const notes = loadNotes();
   const check = notes.filter((note) => note.title === title);
-  if (check.length > 0) {
+  if (check) {
     const remaining = notes.filter((note) => note.title != title);
     saveNotes(remaining);
     console.log(chalk.green.inverse(title + " Deleted Successfully!"));
