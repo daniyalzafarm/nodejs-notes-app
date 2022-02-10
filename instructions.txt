@@ -1,0 +1,17 @@
+-- We can give arguments along with node command
+    node app.js add --title="This is my New Note"
+
+-- Now we can access these arguments in code using command
+    console.log(process.argv);
+
+-- process.argv give us the arguments as they are written in command
+
+-- We can use a package called "yargs" , yargs provides us useful information. It gives us values as variables.
+
+Commands to Run this Project:
+
+    -- node app.js add --title="This is New Title" --body="This is body"
+    -- node app.js remove --title="This is New Title"
+    -- node app.js read --title="This is New Title"
+    -- node app.js list
+    
